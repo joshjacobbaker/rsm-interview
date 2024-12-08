@@ -36,7 +36,7 @@ type User = {
 };
 
 function App() {
-  const {data, loading, error} = useFetch<User[]>('https://jsonplaceholder.typicode.com/users')
+  const {data, status} = useFetch<User[]>('https://jsonplaceholder.typicode.com/users')
 
   return (
 <div>
@@ -50,7 +50,7 @@ function App() {
           </TableRow>
         </TableHead>
         {
-          loading && (
+          status === "loading" && (
             <TableBody>
               <TableRow>
                 <TableCell>Loading...</TableCell>
@@ -58,10 +58,10 @@ function App() {
             </TableBody>
         )}
         {
-          error && (
+          status === "error" && (
             <TableBody>
               <TableRow>
-                <TableCell>Error: {error}</TableCell>
+                <TableCell>Error...</TableCell>
               </TableRow>
             </TableBody>
         )
