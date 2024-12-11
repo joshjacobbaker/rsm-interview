@@ -36,6 +36,7 @@ export default function Home() {
           defaultColDef={defaultColDef}
         />
       </div>
+      <EChartComponent></EChartComponent>
     </div>
   )
 }
