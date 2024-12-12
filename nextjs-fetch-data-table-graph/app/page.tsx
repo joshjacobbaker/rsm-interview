@@ -24,6 +24,22 @@ export default function Home() {
     flex: 1,
   }
 
+  const option: echarts.EChartsOption = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        type: 'bar',
+        data: [23, 24, 18, 25, 27, 28, 25],
+      },
+    ],
+  }
+
   return (
     <div>
       <div
@@ -36,7 +52,9 @@ export default function Home() {
           defaultColDef={defaultColDef}
         />
       </div>
-      <EChartComponent></EChartComponent>
+      <div>
+        <EChartComponent option={option}></EChartComponent>
+      </div>
     </div>
   )
 }
